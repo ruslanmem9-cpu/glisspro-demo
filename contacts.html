@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты: GlissPro (демо)</title>
+  <meta name="description" content="Контакты GlissPro: телефон, Санкт-Петербург, формы консультации и общего обращения.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="contacts">
+  <div id="site-header"></div>
+  <main>
+    <div class="container" style="padding-bottom: 72px">
+      <p class="crumbs"><a href="index.html">Главная</a> / Контакты</p>
+      <h1 class="page-title">Контакты</h1>
+
+      <div class="contact-row" style="margin-top: 24px">
+        <div>
+          <p><a class="big-phone" href="tel:+79213351891">+7 (921) 335-18-91</a></p>
+          <p class="field__hint">Звонки принимаются по Москве с 9:00 до 20:00.</p>
+          <p>Санкт-Петербург. Адрес пункта выдачи уточняется.</p>
+          <p class="field__hint">Email и реквизиты предоставит заказчик.</p>
+        </div>
+
+        <div>
+          <section id="consultation" style="scroll-margin-top: 90px">
+            <h2 class="section__title" style="font-size: 1.3rem">Консультация</h2>
+            <p class="field__hint">Подберём позиции под задачу и свяжемся с вами.</p>
+            <form data-form="consultation">
+              <div class="form-grid">
+                <div class="field"><label for="cn-name">Имя</label><input id="cn-name" name="name" required autocomplete="name"></div>
+                <div class="field"><label for="cn-phone">Телефон</label><input id="cn-phone" name="phone" type="tel" required autocomplete="tel"></div>
+                <div class="field field--full"><label for="cn-email">Email</label><input id="cn-email" name="email" type="email"></div>
+                <div class="field field--full"><label for="cn-msg">Задача</label><textarea id="cn-msg" name="message"></textarea></div>
+              </div>
+              <label class="check"><input type="checkbox" name="consent" required> Согласен на обработку персональных данных</label>
+              <button class="btn" type="submit">Отправить</button>
+            </form>
+            <div class="notice notice--ok form-success" hidden>Заявка отправлена. Свяжемся с вами в рабочее время.</div>
+          </section>
+
+          <section style="margin-top: 48px">
+            <h2 class="section__title" style="font-size: 1.3rem">Общее обращение</h2>
+            <form data-form="general">
+              <div class="form-grid">
+                <div class="field"><label for="g-name">Имя</label><input id="g-name" name="name" required autocomplete="name"></div>
+                <div class="field"><label for="g-phone">Телефон</label><input id="g-phone" name="phone" type="tel" required autocomplete="tel"></div>
+                <div class="field field--full"><label for="g-msg">Сообщение</label><textarea id="g-msg" name="message" required></textarea></div>
+              </div>
+              <label class="check"><input type="checkbox" name="consent" required> Согласен на обработку персональных данных</label>
+              <button class="btn" type="submit">Отправить</button>
+            </form>
+            <div class="notice notice--ok form-success" hidden>Обращение отправлено.</div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/store.js"></script>
+</body>
+</html>

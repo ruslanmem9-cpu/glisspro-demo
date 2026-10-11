@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог защитных покрытий и PPF: GlissPro (демо)</title>
+  <meta name="description" content="Каталог GlissPro: керамические покрытия, полироли, плёнки PPF и инструменты. Сравнение до трёх товаров, скидка 10% на первый заказ.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="catalog">
+  <div id="site-header"></div>
+  <main>
+    <div class="container">
+      <p class="crumbs"><a href="index.html">Главная</a> / Каталог</p>
+      <h1 class="page-title">Каталог</h1>
+      <p class="lede">Покрытия, полироли, плёнки PPF и инструменты. Выберите до трёх товаров для сравнения.</p>
+
+      <div class="toolbar">
+        <div class="toolbar__filters" id="category-chips" aria-label="Категории"></div>
+        <div class="toolbar__controls">
+          <select class="sort" id="sort" aria-label="Сортировка">
+            <option value="default">По умолчанию</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <option value="name">По названию</option>
+          </select>
+          <input class="search" id="search" type="search" placeholder="Поиск по названию или артикулу" aria-label="Поиск по каталогу">
+        </div>
+      </div>
+      <p class="field__hint" id="count"></p>
+      <div class="grid" id="product-grid" style="margin: 16px 0 72px"></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/store.js"></script>
+</body>
+</html>

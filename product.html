@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Товар: GlissPro (демо)</title>
+  <meta name="description" content="Карточка товара GlissPro: варианты, характеристики, добавление в корзину и вопрос о товаре.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="product">
+  <div id="site-header"></div>
+  <main>
+    <div class="container" style="padding-bottom: 72px">
+      <p class="crumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <span id="crumb-name">Товар</span></p>
+
+      <div id="product-root"></div>
+
+      <section class="mini-form">
+        <h2 class="section__title" style="font-size: 1.3rem">Вопрос о товаре</h2>
+        <p class="field__hint">Ответим по составу, нанесению и совместимости. Товар подставляется в заявку автоматически.</p>
+        <form data-form="product_question">
+          <input type="hidden" name="product" id="question-product" value="">
+          <div class="form-grid">
+            <div class="field"><label for="q-name">Имя</label><input id="q-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="q-phone">Телефон</label><input id="q-phone" name="phone" type="tel" required autocomplete="tel"></div>
+            <div class="field field--full"><label for="q-question">Вопрос</label><textarea id="q-question" name="question" required></textarea></div>
+          </div>
+          <label class="check"><input type="checkbox" name="consent" required> Согласен на обработку персональных данных</label>
+          <button class="btn" type="submit">Отправить вопрос</button>
+        </form>
+        <div class="notice notice--ok form-success" hidden>Вопрос отправлен. Менеджер ответит в рабочее время.</div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/store.js"></script>
+</body>
+</html>

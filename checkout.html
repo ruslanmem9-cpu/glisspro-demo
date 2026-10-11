@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оформление заказа: GlissPro (демо)</title>
+  <meta name="description" content="Оформление заказа GlissPro: физлицо, компания или ИП, три способа получения, онлайн-оплата или счёт.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="checkout">
+  <div id="site-header"></div>
+  <main>
+    <div class="container" style="padding-bottom: 72px">
+      <p class="crumbs"><a href="index.html">Главная</a> / <a href="cart.html">Корзина</a> / Оформление</p>
+      <h1 class="page-title">Оформление заказа</h1>
+      <p class="lede">Демо: заказ сохраняется в браузере и показывает данные для amoCRM. Реальная оплата не проводится.</p>
+
+      <div id="checkout-empty" class="panel" hidden style="margin-top: 24px">
+        <p>Корзина пуста.</p>
+        <a class="btn" href="catalog.html">Перейти в каталог</a>
+      </div>
+
+      <div class="two-col" id="checkout-layout">
+        <form class="panel" id="checkout-form">
+
+          <div class="checkout-section">
+            <h3>1. Тип покупателя</h3>
+            <div class="choice-group">
+              <label class="choice"><input type="radio" name="buyer_type" value="person" checked><span>Физическое лицо</span></label>
+              <label class="choice"><input type="radio" name="buyer_type" value="company"><span>Компания или ИП<small>Документы для юрлица предоставляются при заказе</small></span></label>
+            </div>
+            <div data-buyer="company" hidden>
+              <div class="form-grid">
+                <div class="field field--full"><label for="company_name">Название компании или ИП</label><input id="company_name" name="company_name" autocomplete="organization"></div>
+                <div class="field"><label for="inn">ИНН</label><input id="inn" name="inn" inputmode="numeric" pattern="[0-9]{10}|[0-9]{12}" title="10 или 12 цифр"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h3>2. Контакты</h3>
+            <div class="form-grid">
+              <div class="field"><label for="contact_name">Имя</label><input id="contact_name" name="contact_name" required autocomplete="name"></div>
+              <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00"></div>
+              <div class="field field--full">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email">
+                <span class="field__hint">Телефон обязателен. По нему проверяется первый заказ.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h3>3. Способ получения</h3>
+            <div class="choice-group">
+              <label class="choice"><input type="radio" name="delivery" value="tk" checked><span>Транспортная компания<small>Доставка за счёт GlissPro, ТК согласует менеджер</small></span></label>
+              <label class="choice"><input type="radio" name="delivery" value="spb"><span>Доставка по Санкт-Петербургу<small>Курьером по адресу, 0 ₽</small></span></label>
+              <label class="choice"><input type="radio" name="delivery" value="pickup"><span>Самовывоз<small>Из пункта выдачи в Санкт-Петербурге</small></span></label>
+            </div>
+
+            <div data-delivery="tk">
+              <div class="form-grid">
+                <div class="field"><label for="tk_city">Город</label><input id="tk_city" name="tk_city" required autocomplete="address-level2"></div>
+                <div class="field"><label for="tk_carrier">Транспортная компания</label>
+                  <select id="tk_carrier" name="tk_carrier">
+                    <option>СДЭК</option>
+                    <option>Деловые Линии</option>
+                    <option>ПЭК</option>
+                    <option>Другая, по согласованию</option>
+                  </select>
+                </div>
+                <div class="field field--full"><label for="tk_address">Адрес или пункт выдачи ТК</label><input id="tk_address" name="tk_address" required></div>
+                <div class="field field--full"><label for="tk_comment">Комментарий для менеджера</label><textarea id="tk_comment" name="tk_comment"></textarea></div>
+              </div>
+            </div>
+
+            <div data-delivery="spb" hidden>
+              <div class="form-grid">
+                <div class="field field--full"><label for="spb_address">Адрес доставки в Санкт-Петербурге</label><input id="spb_address" name="spb_address" required autocomplete="street-address"></div>
+                <div class="field"><label for="spb_date">Желаемая дата</label><input id="spb_date" name="spb_date" type="date"></div>
+                <div class="field field--full"><label for="spb_comment">Комментарий для курьера</label><textarea id="spb_comment" name="spb_comment"></textarea></div>
+              </div>
+            </div>
+
+            <div data-delivery="pickup" hidden>
+              <div class="field"><label for="pickup-select">Пункт выдачи</label><select id="pickup-select" name="pickup_point" required></select></div>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h3>4. Оплата</h3>
+            <div class="choice-group">
+              <label class="choice"><input type="radio" name="payment" value="online" checked><span>Онлайн-оплата<small>Карта или сервис, выбранный заказчиком (Prodamus или эквайринг)</small></span></label>
+              <label class="choice"><input type="radio" name="payment" value="invoice"><span>Заказ по счёту<small>Счёт выставит менеджер, для компаний и ИП</small></span></label>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h3>5. Комментарий и согласие</h3>
+            <div class="field"><label for="comment">Комментарий к заказу</label><textarea id="comment" name="comment"></textarea></div>
+            <label class="check"><input type="checkbox" name="consent" required> Согласен с офертой и обработкой персональных данных</label>
+            <button class="btn btn--accent btn--block" type="submit">Оформить заказ</button>
+          </div>
+        </form>
+
+        <aside class="panel" id="checkout-summary">
+          <h2>Ваш заказ</h2>
+          <ul id="checkout-items" style="padding-left: 18px; margin: 0 0 16px; font-size: 15px"></ul>
+          <div class="totals">
+            <div><span>Товары</span><span id="sum-subtotal">0 ₽</span></div>
+            <div class="is-discount"><span>Скидка 10% на первый заказ</span><span id="sum-discount">0 ₽</span></div>
+            <div><span>Доставка</span><span>0 ₽, оплачивает GlissPro</span></div>
+            <div class="is-total"><span>К оплате</span><span id="sum-total">0 ₽</span></div>
+          </div>
+          <p class="field__hint" id="discount-note"></p>
+        </aside>
+      </div>
+
+      <section id="order-result" class="panel" hidden style="margin-top: 24px; max-width: 760px">
+        <h2>Заказ <span id="order-number"></span> создан</h2>
+        <p>Статус: <span class="order-status" id="order-status" data-status="awaiting_payment"></span></p>
+        <p class="field__hint" id="order-note"></p>
+        <div class="sim-row" id="sim-box">
+          <button class="btn btn--small" type="button" data-sim="paid">Имитация webhook: оплачено</button>
+          <button class="btn btn--small btn--ghost" type="button" data-sim="failed">Имитация: оплата не прошла</button>
+          <button class="btn btn--small btn--ghost" type="button" data-sim="canceled">Имитация: отмена</button>
+        </div>
+        <details>
+          <summary>Данные заказа для amoCRM и учёта</summary>
+          <pre class="json" id="order-json"></pre>
+        </details>
+        <a class="btn btn--ghost" href="catalog.html" style="margin-top: 12px">Вернуться в каталог</a>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/store.js"></script>
+</body>
+</html>
